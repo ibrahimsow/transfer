@@ -101,4 +101,76 @@ body{
                  }       
             }
         }
+        .envoyer{
+            background-color: white;
+            box-shadow: 0px 7px 30px #0000008a;
+            height: 50vh;
+            width: 80vh;
+            padding: 0;
+            border-radius: 3%;
+            border: solid 2px #00000036;
+            form{
+                margin: 60px;
+                label{
+                    font-weight: bold;
+                    color: #1c97d6;
+                }
+                input, optgroup, select, textarea {
+                    margin-top: 10px;
+                    margin-bottom: 50px;
+                    font-family: inherit;
+                    font-size: inherit;
+                    line-height: inherit;
+                    width: 90%;
+                    background: none;
+                    outline: none;
+                    border: none;
+                    resize: none;
+                    border-bottom: solid 1px #1c97d6;
+                }
+                button {
+                    width: 70%;
+                    background-color: #1c97d6;
+                    color: white;
+                    font-weight: bold;
+                    margin-top: 40px;
+                }
+                .uploader{
+                    overflow: auto;
+                }
+                #listing{
+                    height: 200px;
+                    list-style: none;
+                    font-weight: bold;
+                    font-size:15px;
+                    color: #1c97d6;
+                }
+                .btn-tertiary {
+                    color: #1c97d6;
+                    padding: 0;
+                    line-height: 40px;
+                    width: 300px;
+                    margin: auto;
+                    display: block;
+                    border: 2px solid #1c97d6;
+                  
+                  }
+                  
+                  /* input file style */
+                  
+                  .input-file {
+                      border: none;
+                      margin-top: 20px;
+                      margin-bottom: 5px !important;
+                      font-weight: bold;
+                      font-size:15px;
+                      color: #1c97d6;
+                      &:hover, 
+                      &:focus {
+                        color: lighten(#1c97d6, 10%);
+                        border-color: lighten(#1c97d6, 20%);
+                      }
+                  }
+            }
+        }
     }

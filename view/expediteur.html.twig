@@ -4,70 +4,36 @@
 
 {% block content %}
 
-    {% for film in films %}
+
    
-    <div class="container d-flex flex-column flex-sm-column flex-md-column flex-lg-row mb-5"> 
-        <div  class="image col-12 col-sm-12 col-md-12 col-lg-4" style="background: url({{film.image_film}}); background-size: auto; background-repeat: no-repeat;
-                background-position: center;
-                height: 500px; margin:0;">
-            </div>
-        <section id="fiche" class="contenu col-12 col-sm-12 col-md-12 col-lg-8">
-            <div>
-                <h2>{{film.titre}}</h2>
-            </div>
-            <div>
-                <p>Date de sortie : <a href="./annee">{{film.annee}}</a></p>
-            </div>
-            <div>
-                <p>
-                De : <a href="./realisateur">{{film.realisateur}}</a>
-                </p>
-            </div>
-            <div>
-                <p>Avec :  <a href="./acteur">{{film.acteur}}</a></p>
-            
-            </div>
-            <div>
-                <p>Genre : {{film.genre}}
-                </p>
-            </div>
-            <div>
-                <p>Synopsis : {{film.description}}</p>
-            </div>
-            <div>
-               <p class="showBandeAnnonce">Voir la bande annonce</p>
-               <p class="hideBandeAnnonce">Cacher la bande annonce</p>
-            </div> 
-
-        </section>
-    </div>
-       <div class="container bande_annonce">
-        <iframe width="560" height="315" src="{{film.bande_annonce}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="envoyer container"> 
+            <form id="formulaire" class="row" action="#contact" method="POST" enctype="multipart/form-data" name="vform" onSubmit="return Validate();">
+               <div class="infos col-6"> 
+               <div id="email_div "> 
+                  <label>Email</label> <br>
+                  <div id="email_error"></div>
+                  <input id="email" type="email" name="email" class="textInput">
+               </div>
+               <div id="message_div ">  
+                  <label>Ecrivez votre message</label> <br>
+                  <div id="message_error"></div>
+                  <textarea id="message" name="message" class="messageInput"  rows=4 cols=40> </textarea>   
+               </div>
+               </div>  
+               <div class="col-6 uploader">
+                     <label for="file" class="btn btn-tertiary js-labelFile">
+                      <i class="far fa-caret-square-down"></i>
+                      <span class="js-fileName">Charger vos fichiers</span>
+                    </label>
+                     <input type="file" class="input-file" id="filepicker" name="fileList" webkitdirectory multiple />
+                     <ul id="listing"></ul>
+                     
+               </div>
+               <div class="col-12 d-flex justify-content-center align-items-center">
+                  <button id="button" type="submit" class="btn ">Envoyer</button>
+               </div>
+           </form> 
+        </div>
     </div>
 
-    {% endfor %}
-  
-
 {%  endblock %}
-
-{% block menugenre %}
-             <section class="container-fluid d-flex justify-content-center affichage_genre row m-0" >
-                {% for genre in genres %}
-                <a href="films/genre/{{genre.id}}">{{genre.type}}</a>
-                {% endfor %}
-            </section>
-            <section class="container-fluid d-flex justify-content-center affichage_genre_mobile row" >
-                <div class="dropdown d-flex justify-content-center">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Retrouvez vos films par genre
-                    </button>
-                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
-                        {% for genre in genres %}
-                            <a href="films/genre/{{genre.id}}" class="row col-12">{{genre.type}}</a>
-                        {# <button class="dropdown-item" type="button">Action</button> #}
-                        {% endfor %}
-                    </div>
-                </div>
-            </section>
-{%  endblock %}
-  
