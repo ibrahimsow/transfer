@@ -104,7 +104,7 @@ body {
         color: #1c97d6; }
       body .envoyer form input, body .envoyer form optgroup, body .envoyer form select, body .envoyer form textarea {
         margin-top: 10px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         font-family: inherit;
         font-size: inherit;
         line-height: inherit;
@@ -119,7 +119,7 @@ body {
         background-color: #1c97d6;
         color: white;
         font-weight: bold;
-        margin-top: 40px; }
+        margin-top: 10px; }
       body .envoyer form .uploader {
         overflow: auto; }
       body .envoyer form #listing {
