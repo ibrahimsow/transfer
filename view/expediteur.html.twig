@@ -1,0 +1,39 @@
+{% extends 'index.html.twig' %} 
+
+
+
+{% block content %}
+
+
+   
+    <div class="envoyer container"> 
+            <form id="formulaire" class="row" action="#contact" method="POST" enctype="multipart/form-data" name="vform" onSubmit="return Validate();">
+               <div class="infos col-6"> 
+               <div id="email_div "> 
+                  <label>Email</label> <br>
+                  <div id="email_error"></div>
+                  <input id="email" type="email" name="email" class="textInput">
+               </div>
+               <div id="message_div ">  
+                  <label>Ecrivez votre message</label> <br>
+                  <div id="message_error"></div>
+                  <textarea id="message" name="message" class="messageInput"  rows=4 cols=40> </textarea>   
+               </div>
+               </div>  
+               <div class="col-6 uploader">
+                     <label for="file" class="btn btn-tertiary js-labelFile">
+                      <i class="far fa-caret-square-down"></i>
+                      <span class="js-fileName">Charger vos fichiers</span>
+                    </label>
+                     <input type="file" class="input-file" id="filepicker" name="fileList" webkitdirectory multiple />
+                     <ul id="listing"></ul>
+                     
+               </div>
+               <div class="col-12 d-flex justify-content-center align-items-center">
+                  <button id="button" type="submit" class="btn ">Envoyer</button>
+               </div>
+           </form> 
+        </div>
+    </div>
+
+{%  endblock %}

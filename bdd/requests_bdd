@@ -1,0 +1,57 @@
+Requête SQL par genre avec concat :
+
+SELECT films.titre, GROUP_CONCAT(genre.type SEPARATOR ', ')
+FROM (film_genre INNER JOIN films ON film_genre.film = films.id) 
+INNER JOIN genre 
+ON genre.id = film_genre.genre
+GROUP BY films.titre
+
+__________________________________________________________________
+
+Requête SQL par acteurs avec concat :
+
+SELECT films.titre, GROUP_CONCAT(acteur.acteur SEPARATOR ', ')
+FROM (film_acteur INNER JOIN films ON film_acteur.film = films.id) 
+INNER JOIN acteur 
+ON acteur.id = film_acteur.acteur
+GROUP BY films.titre
+
+__________________________________________________________________
+
+Requête SQL par réalisateur avec concat : 
+
+SELECT films.titre, GROUP_CONCAT(realisateur.realisateur SEPARATOR ', ')
+FROM (film_realisateur INNER JOIN films ON film_realisateur.film = films.id) 
+INNER JOIN realisateur 
+ON realisateur.id = film_realisateur.realisateur
+GROUP BY films.titre
+
+__________________________________________________________________
+
+Trier films par odre croissant : 
+
+SELECT * FROM `films` ORDER BY `films`.`annee` ASC
+
+__________________________________________________________________
+
+Trier films par odre décroissant :
+
+SELECT * FROM `films` ORDER BY `films`.`annee` DESC
+
+__________________________________________________________________
+
+Requête global : 
+
+SELECT films.titre,films.annee,films.description,films.image_film, 
+GROUP_CONCAT(DISTINCT genre.type SEPARATOR ', ') AS genre,
+GROUP_CONCAT(DISTINCT realisateur.realisateur SEPARATOR ', ') AS realisateur,
+GROUP_CONCAT(DISTINCT acteur.acteur SEPARATOR ', ') AS acteur
+FROM film_genre 
+INNER JOIN films ON film_genre.film = films.id
+INNER JOIN film_realisateur ON film_realisateur.film = films.id
+INNER JOIN realisateur ON realisateur.id = film_realisateur.realisateur
+INNER JOIN genre ON genre.id = film_genre.genre
+INNER JOIN film_acteur ON film_acteur.film = films.id
+INNER JOIN acteur ON acteur.id = film_acteur.acteur
+GROUP BY films.titre
+

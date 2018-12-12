@@ -13,61 +13,39 @@
     <link rel="icon" sizes="64x64" href="img/favicon-64.png" type="image/png">
     <link rel="icon" sizes="96x96" href="img/favicon-96.png" type="image/png">
     <link  rel="stylesheet" type="text/css" href="style.css" />
-    <title>ACCESS-MOVIE</title>
+    <title>File-Walk</title>
 </head>
 <body>
-    <section class="ma_page container-fluid ">
-    <div class="goup"> <a href="#header"><i class="fas fa-sort-up"></i></a></div>
-        <header id="header" class="container-fluid d-flex flex-column justify-content-center align-items-center" id="home">
+    <header id="header" class="container-fluid d-flex flex-column justify-content-center align-items-center" id="home">
           <div class="container-fluid manav">
             <nav id="home" class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
-                <!--<a class="navbar-brand" href="index.html"><i class="far fa-smile-wink"></i></a>-->
+                <a class="navbar-brand" href="index.html"><i class="far fa-smile-wink"></i></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="ml-1 mr-1 nav-item d-flex justify-content-center align-items-center">
-                        <a class="m-1 nav-link" href="./films">Tous les Films <span class="sr-only">(current)</span></a>
+                        <a class="m-1 nav-link" href="#">A Propos <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="ml-1 mr-1 nav-item  d-flex justify-content-center align-items-center">
-                        <a class="m-1 nav-link" href="./realisateur">Realisateurs</a>
+                        <a class="m-1 nav-link" href="#">Devenir Membre</a>
                         </li>
                         <li class="ml-1 mr-1 nav-item  d-flex justify-content-center align-items-center">
-                        <a class="m-1 nav-link" href="./acteur">Acteurs</a>
-                        </li>
-                        <li class="ml-1 mr-1 nav-item  d-flex justify-content-center align-items-center">
-                        <a class="m-1 nav-link" href="./annee">Année</a>
+                        <a class="m-1 nav-link" href="#">Connexion</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div> 
-            <div class="title">
             <p class="icone"></p>
-                <h1 class="title d-flex flex-row" >Acc<span class="access">ess</span> <i class="icone fas fa-video"></i> Mo<span class="access">vie</span></h1>
-                <h2 class="text-center">{{title}}</h2>
-                <a href="./realisateur"><p class="text-center return_style">{{returnreal| raw}}</p></a>
-                <h2 class="showdata text-center">{{showrealisateur}}</h2>
-                <a href="./acteur"><p class="text-center return_style">{{returnacteur| raw}}</p></a>
-                <h2 class="showdata text-center">{{showacteur}}</h2>
-                <a href="./annee"><p class="text-center return_style">{{returnannee| raw}}</p></a>
-                <h2 class="showdata text-center">{{showannee}}</h2>
-                
-            </div>
+                <h1 class="title d-flex flex-row" >Transférez vos fichiers</span></h1>
+
             <hr>
-        </header>
-        <div class="goup"> </div>
-                {% block menugenre %}
-                {% endblock %}
-            <section class="container-fluid affichage d-flex flex-wrap align-items-center justify-content-center" >
+    </header>
+    <section class="container-fluid affichage d-flex flex-wrap align-items-center justify-content-center" >
                 {% block content %}
                 {%  endblock %}
-            </section>
-             <section class="container-fluid affichage" >
-                {% block content_real_acteur %}
-                {%  endblock %}
-            </section>
     </section>
    
 
