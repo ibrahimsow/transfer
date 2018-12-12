@@ -10,7 +10,12 @@
             <form id="formulaire" class="row" action="#contact" method="POST" enctype="multipart/form-data" name="vform" onSubmit="return Validate();">
                <div class="infos col-6"> 
                <div id="email_div "> 
-                  <label>Email</label> <br>
+                  <label>Votre email</label> <br>
+                  <div id="email_error"></div>
+                  <input id="email" type="email" name="email" class="textInput">
+               </div>
+               <div id="email_div "> 
+                  <label>Email du Destinataire</label> <br>
                   <div id="email_error"></div>
                   <input id="email" type="email" name="email" class="textInput">
                </div>
