@@ -1,6 +1,6 @@
 body{
     background: linear-gradient(#ffffff00, #7d7d7db0);
-    height: 100vh;;
+    height: 100vh;
         header{
 
             .container-fluid {
@@ -28,7 +28,7 @@ body{
                 h1{
                     font-size: 3rem;
                     margin-top: 10vh;
-                    margin-bottom: 5vh;
+                    margin-bottom: 3vh;
                     color: #606061eb;
                     text-transform: uppercase;
                     font-weight: bold;
@@ -104,13 +104,13 @@ body{
         .envoyer{
             background-color: white;
             box-shadow: 0px 7px 30px #0000008a;
-            height: 50vh;
-            width: 80vh;
+            // height: 50vh;
+            width: 100vh;
             padding: 0;
             border-radius: 3%;
             border: solid 2px #00000036;
             form{
-                margin: 60px;
+                margin: 50px;
                 label{
                     font-weight: bold;
                     color: #1c97d6;
@@ -139,11 +139,13 @@ body{
                     overflow: auto;
                 }
                 #listing{
-                    height: 200px;
+                    height: 100px;
                     list-style: none;
                     font-weight: bold;
                     font-size:15px;
                     color: #1c97d6;
+                    overflow: auto;
+                    display: none;
                 }
                 .btn-tertiary {
                     color: #1c97d6;

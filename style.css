@@ -20,7 +20,7 @@ body {
   body header h1 {
     font-size: 3rem;
     margin-top: 10vh;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
     color: #606061eb;
     text-transform: uppercase;
     font-weight: bold;
@@ -91,13 +91,12 @@ body {
   body .envoyer {
     background-color: white;
     box-shadow: 0px 7px 30px #0000008a;
-    height: 50vh;
-    width: 80vh;
+    width: 100vh;
     padding: 0;
     border-radius: 3%;
     border: solid 2px #00000036; }
     body .envoyer form {
-      margin: 60px;
+      margin: 50px;
       /* input file style */ }
       body .envoyer form label {
         font-weight: bold;
@@ -123,11 +122,13 @@ body {
       body .envoyer form .uploader {
         overflow: auto; }
       body .envoyer form #listing {
-        height: 200px;
+        height: 100px;
         list-style: none;
         font-weight: bold;
         font-size: 15px;
-        color: #1c97d6; }
+        color: #1c97d6;
+        overflow: auto;
+        display: none; }
       body .envoyer form .btn-tertiary {
         color: #1c97d6;
         padding: 0;

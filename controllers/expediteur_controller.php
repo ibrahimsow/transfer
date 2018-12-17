@@ -28,9 +28,12 @@ switch ($action) {
 
 function showList(){
     global $twig, $baseurl;
-    $films = liste();
+    $expediteur = expediteur();
+    $destinataire = destinataire();
+    $fichier = fichier();
+    $message = message();
     
     $template = $twig->load('expediteur.html.twig');
-    echo $template->render( array('title'=>'Tous les Films', 'films' => $films, 'baseurl' => $baseurl) );
+    echo $template->render( array('title'=>'expediteur', 'expediteur' => $expediteur, 'destinataire' => $destinataire, 'fichier' => $fichier, 'message' => $message,  'baseurl' => $baseurl) );
 
 }

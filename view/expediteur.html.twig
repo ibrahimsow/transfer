@@ -7,8 +7,8 @@
 
    
     <div class="envoyer container"> 
-            <form id="formulaire" class="row" action="reception.php" method="POST" enctype="multipart/form-data">
-               <div class="infos col-6"> 
+            <form id="formulaire"  action="#" method="POST" enctype="multipart/form-data">
+               <div class="infos"> 
                <div id="email_div "> 
                   <label for="email_expediteur">Votre email</label> <br>
                   <div id="email_error"></div>
@@ -23,18 +23,16 @@
                   <label for="message">Ecrivez votre message</label> <br>
                   <div id="message_error"></div>
                   <textarea id="message" name="message" class="messageInput"  rows=4 cols=40> </textarea>   
-               </div>
+                  </div>
                </div>  
-               <div class="col-6 uploader">
-                     <label for="fichier" class="btn btn-tertiary js-labelFile">
-                      <i class="far fa-caret-square-down"></i>
-                      <span class="js-fileName">Charger vos fichiers</span>
-                    </label>
-                     <input type="file" class="input-file" id="fichier" name="fichier" value="100000" multiple />
+               <div class="uploader">
+                     <label for="fichier">
+                      </label>
+                     <input type="file" name="fichier" class="input-file" id="fichier"  value="100000" multiple >
                      <ul id="listing"></ul>
                      
                </div>
-               <div class="col-12 d-flex justify-content-center align-items-center">
+               <div class="d-flex justify-content-center align-items-center">
                   <button id="button" type="submit" name="envoyer" value="Upload File Now" class="btn ">Envoyer</button>
                </div>
            </form> 
