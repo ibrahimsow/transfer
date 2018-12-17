@@ -2,23 +2,60 @@
     require'models/connection_bdd.php';
 
 
-    function liste(){
+    function expediteur(){
         global $basedonne;
 
-        $sql = "SELECT films.titre,films.annee,films.description,films.image_film, films.bande_annonce, 
-        GROUP_CONCAT(DISTINCT genre.type SEPARATOR ', ') AS genre,
-        GROUP_CONCAT(DISTINCT realisateur.realisateur SEPARATOR ', ') AS realisateur,
-        GROUP_CONCAT(DISTINCT acteur.acteur SEPARATOR ', ') AS acteur
-        FROM film_genre 
-        INNER JOIN films ON film_genre.film = films.id
-        INNER JOIN film_realisateur ON film_realisateur.film = films.id
-        INNER JOIN realisateur ON realisateur.id = film_realisateur.realisateur
-        INNER JOIN genre ON genre.id = film_genre.genre
-        INNER JOIN film_acteur ON film_acteur.film = films.id
-        INNER JOIN acteur ON acteur.id = film_acteur.acteur
-        GROUP BY films.titre";
-        
+        if (isset($_POST['envoyer'])){
+        $sql = "INSERT INTO expediteur (mail, date_envoi)
+        VALUES ('".$_POST["email_expediteur"]."',NOW())";
+
         $requete = $basedonne->prepare($sql);
         $requete->execute();    
         return $requete->fetchAll(PDO::FETCH_ASSOC);    
+    }
+        
+    }
+
+
+    function destinataire(){
+        global $basedonne;
+        if (isset($_POST['envoyer'])){
+        $sql = "INSERT INTO destinataire (mail)
+        VALUES ('".$_POST["email_destinataire"]."')";
+     
+        $requete = $basedonne->prepare($sql);
+        $requete->execute();    
+        return $requete->fetchAll(PDO::FETCH_ASSOC);    
+    }
+        
+    }
+
+
+    function fichier(){
+        global $basedonne;
+        if (isset($_POST['envoyer'])){
+        $Filename= ( $_FILES['fichier']['name']);
+        $temp_name  = $_FILES['fichier']['tmp_name'];
+        $sql = "INSERT INTO fichier (nom)
+        VALUES ('$Filename')";
+     
+        $requete = $basedonne->prepare($sql);
+        $requete->execute();    
+        return $requete->fetchAll(PDO::FETCH_ASSOC);    
+    }
+        
+    }
+
+    
+    function message(){
+        global $basedonne;
+        if (isset($_POST['envoyer'])){
+            $sql = "INSERT INTO info (message)
+            VALUES ('".$_POST["message"]."')";
+     
+        $requete = $basedonne->prepare($sql);
+        $requete->execute();    
+        return $requete->fetchAll(PDO::FETCH_ASSOC);    
+    }
+        
     }
