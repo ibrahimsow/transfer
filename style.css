@@ -127,23 +127,20 @@ body {
         font-weight: bold;
         font-size: 15px;
         color: #1c97d6;
-        overflow: auto;
-        display: none; }
-      body .envoyer form .btn-tertiary {
-        color: #1c97d6;
-        padding: 0;
-        line-height: 40px;
-        width: 300px;
-        margin: auto;
-        display: block;
-        border: 2px solid #1c97d6; }
+        overflow: auto; }
+      body .envoyer form .label-file {
+        margin-top: 20px; }
+        body .envoyer form .label-file i {
+          font-size: 40px;
+          margin-right: 15px; }
       body .envoyer form .input-file {
         border: none;
         margin-top: 20px;
         margin-bottom: 5px !important;
         font-weight: bold;
         font-size: 15px;
-        color: #1c97d6; }
+        color: #1c97d6;
+        display: none; }
         body .envoyer form .input-file:hover, body .envoyer form .input-file:focus {
           color: #3fade6;
           border-color: #6cc1ec; }
