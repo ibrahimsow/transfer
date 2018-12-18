@@ -31,70 +31,20 @@ for (let j = 0; j < showTrailler.length; j++) {
 }
 
 
-// transition sur la redirection de mon liens d'ancrage
-
-(function() {
-  var speed = 600;
-  var moving_frequency = 15; // Affects performance !
-  var links = document.querySelectorAll("a"); // Active links
-  var href;
-  for(var i=0; i<links.length; i++)
-  {   
-      href = (links[i].attributes.href === undefined) ? null : links[i].attributes.href.nodeValue.toString();
-      if(href !== null && href.length > 1 && href.substr(0, 1) == '#')
-      {
-          links[i].onclick = function()
-          {
-              var element;
-              var href = this.attributes.href.nodeValue.toString();
-              if(element = document.getElementById(href.substr(1)))
-              {
-                  var hop_count = speed/moving_frequency
-                  var getScrollTopDocumentAtBegin = getScrollTopDocument();
-                  var gap = (getScrollTopElement(element) - getScrollTopDocumentAtBegin) / hop_count;
-                  
-                  for(var j = 1; j <= hop_count; j++)
-                  {
-                      (function()
-                       {
-                           var hop_top_position = gap*j;
-                           setTimeout(function(){  window.scrollTo(0, hop_top_position + getScrollTopDocumentAtBegin); }, moving_frequency*j);
-                       })();
-                  }
-              }
-              
-              return false;
-          };
-      }
-  }
-  
-  var getScrollTopElement =  function (e)
-  {
-      var top = 0;
-      
-      while (e.offsetParent != undefined && e.offsetParent != null)
-      {
-          top += e.offsetTop + (e.clientTop != null ? e.clientTop : 0);
-          e = e.offsetParent;
-      }
-      
-      return top;
-  };
-  
-  var getScrollTopDocument = function()
-  {
-      return document.documentElement.scrollTop + document.body.scrollTop;
-  };
-})();
-
 // uploader
-document.getElementById("filepicker").addEventListener("change", function(event) {
-    let output = document.getElementById("listing");
-    let files = event.target.files;
+var input = document.getElementById( 'fichier' );
+var infoArea = document.getElementById( 'listing' );
+
+input.addEventListener( 'change', showFileName );
+
+function showFileName( event ) {
   
-    for (let i=0; i<files.length; i++) {
-      let item = document.createElement("li");
-      item.innerHTML = files[i].webkitRelativePath;
-      output.appendChild(item);
-    };
-  }, false);
+  // the change event gives us the input it occurred in 
+  var input = event.srcElement;
+  
+  // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+  var fileName = input.files[0].name;
+  
+  // use fileName however fits your app best, i.e. add it into a div
+  infoArea.textContent = fileName;
+}
