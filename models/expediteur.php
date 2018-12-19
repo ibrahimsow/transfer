@@ -32,7 +32,6 @@
 
     function fichier(){
         global $basedonne;
-
         for( $i=0; $i<count( $_FILES["fichier"]["name"]); $i++){
                 $Filename =  ($_FILES['fichier']['name'])[$i];
                 $temp_name  = $_FILES['fichier']['tmp_name'][$i];
@@ -43,7 +42,7 @@
                 $requete->execute();    
                 return $requete->fetchAll(PDO::FETCH_ASSOC);  
                 
-        
+        }
     }
 
     
