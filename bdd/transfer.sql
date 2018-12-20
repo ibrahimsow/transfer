@@ -31,19 +31,6 @@ CREATE TABLE `destinataire` (
   `mail` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `destinataire`
---
-
-INSERT INTO `destinataire` (`id`, `mail`) VALUES
-(34, 'ibrahimsow.sow@gmail.com'),
-(35, 'ibrahimsow.sow@gmail.com'),
-(36, 'uuuu@mail.com'),
-(37, 'ibrahimsow.sow@gmail.com'),
-(38, 'b@mail.com'),
-(39, 'ibrahimsow.sow@gmail.com'),
-(40, 'ibrahimsow.sow@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -71,15 +58,6 @@ CREATE TABLE `expediteur` (
 -- Contenu de la table `expediteur`
 --
 
-INSERT INTO `expediteur` (`id`, `mail`, `date_envoi`) VALUES
-(41, 'ibrahimsow.sow@gmail.com', '0000-00-00 00:00:00.000000'),
-(42, 'ibrahimsow.sow@gmail.com', '0000-00-00 00:00:00.000000'),
-(43, 'yeahh@mail.com', '0000-00-00 00:00:00.000000'),
-(44, 'ibrahimsow.sow@gmail.com', '2018-12-17 14:56:40.000000'),
-(45, 'b@mail.com', '2018-12-17 14:58:03.000000'),
-(46, 'ibrahimsow.sow@gmail.com', '2018-12-17 15:00:27.000000'),
-(47, 'ibrahimsow.sow@gmail.com', '2018-12-17 15:01:23.000000');
-
 -- --------------------------------------------------------
 
 --
@@ -103,18 +81,14 @@ CREATE TABLE `fichier` (
   `expediteur` varchar(45) DEFAULT NULL,
   `taille` int(11) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
-  `key` varchar(45) DEFAULT NULL
+  `key` varchar(45) DEFAULT NULL,
+  `uuid` varchar(40) NOT NULL,
+  `date_upload` TIMESTAMP NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `fichier`
 --
-
-INSERT INTO `fichier` (`id`, `nom`, `expediteur`, `taille`, `url`, `key`) VALUES
-(27, 'cv.pdf', NULL, NULL, NULL, NULL),
-(28, 'cv.pdf', NULL, NULL, NULL, NULL),
-(29, 'cv.pdf', NULL, NULL, NULL, NULL),
-(30, 'cv_ibrahim (1).pdf', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,14 +117,6 @@ CREATE TABLE `info` (
 --
 -- Contenu de la table `info`
 --
-
-INSERT INTO `info` (`id`, `date envoi`, `message`, `date reception`) VALUES
-(1, NULL, ' ', NULL),
-(2, NULL, ' helllo how you ', NULL),
-(3, NULL, ' hey', NULL),
-(4, NULL, ' salut', NULL),
-(5, NULL, ' 24242424', NULL),
-(6, NULL, ' dsdsds', NULL);
 
 --
 -- Index pour les tables exportées

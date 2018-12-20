@@ -1,7 +1,6 @@
 <?php
     require'models/connection_bdd.php';
 
-
     function expediteur(){
         global $basedonne;
 

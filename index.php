@@ -1,6 +1,5 @@
 <?php 
 
-
 // rooting
 $requete = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
 
@@ -9,16 +8,19 @@ $action=(count($requete) < 3)? "showform": $requete[2];
 $id=(count($requete) < 4)? 0: (int)$requete[3];
 
 switch ($controller) {
-        case 'expediteur':
-        require_once("controllers/expediteur_controller.php");
+
+    case 'upload' : 
+    	require_once("controllers/upload_controller.php");
+        break;
+
+    case 'download' : 
+        require_once("controllers/download_controller.php");
         break;
 
     default:
-        require_once("controllers/expediteur_controller.php");
+        require_once("controllers/home_controller.php");
         break;
 }
-
-
 
 
 ?>
