@@ -3,12 +3,17 @@
 // Insert Class with session database
 require 'DbUtil.php';
 
+/**
+	Manage the content of table : Fichier
+*/
 class FileDao {
 	
 	/**
 		Return table content : fichier
 	*/
 	public static function findAllFiles() {
+
+		$dbUtil = new DbUtil();
 
 		$sessionMysql = DbUtil::getInstance()->getDbSession();
 
