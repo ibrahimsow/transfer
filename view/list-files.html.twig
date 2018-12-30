@@ -1,9 +1,11 @@
 {% extends 'index.html.twig' %} 
 
 {% block content %}
-	<ul>
-		{% for file in files %}
-			<li>{{ file.nom }}</li>
-		{% endfor %}
-	</ul>
+	<section class="container-fluid d-flex flex-column align-items-center justify-content-center" >
+		<ul>
+			{% for file in files %}
+				<li>{{ file.nom }}</li>
+			{% endfor %}
+		</ul>
+	</section>
 {% endblock %}

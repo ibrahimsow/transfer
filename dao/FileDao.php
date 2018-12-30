@@ -40,7 +40,7 @@ class FileDao {
         $sqlRequest .= $size . ", ";
         $sqlRequest .= "'" . $path . "', ";
         $sqlRequest .= "null, ";
-        $sqlRequest .= "'" . sha1(date('Y/m/d')) . "', ";
+        $sqlRequest .= "'" . sha1($key) . "', ";
         $sqlRequest .= "'" . date('Y/m/d h:m:s') . "');";
 
        	$request = $sessionMysql->prepare($sqlRequest);

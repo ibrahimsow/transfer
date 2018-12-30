@@ -23,63 +23,72 @@ function uploadFile() {
 
     global $twig, $baseurl;
 
-	$nameFile = $_FILES['fichier']['name'];
-	$expediteur = $_POST['email_expediteur'];
-	$size = $_FILES['fichier']['size'];
-	$path = "pathSystem/" . $_FILES['fichier']['name'];
-	$key = null;
+    $expediteur = $_POST['email_expediteur'];
+    $key = uniqid();
     
-    $folderExpediteur = "/home/stagiaire/Documents/web/transfert/files/" . sha1($expediteur);
-    $target = $folderExpediteur . "/" . sha1(date('Y/m/d')) . "-" . $nameFile;
+    
+    $folderExpediteur = "/home/ibrahims/www/public/transfert/files/" . sha1($key);
+  
 
     $template = null;
     $arrayRender = null;
 
     if (createFolder($folderExpediteur)) {
-        if (moveFile( $_FILES['fichier']['tmp_name'], $target)) {
-            $idNewFile = FileDao::createNewFile($nameFile, $expediteur, $size, $target, $key);
-            $file = FileDao::findById($idNewFile);
-            $urlToSend = $baseurl . "download/pagedownload/" . $file[0]['uuid'];
-   
+        var_dump($_FILES);
+        for ($i=0; $i<count($_FILES['fichier']['tmp_name']); $i++){
+            $nameFile = $_FILES['fichier']['name'];
+            
+            $size = $_FILES['fichier']['size'];
+            $path = "pathSystem/" . $_FILES['fichier']['name'];
+            $target = $folderExpediteur . "/" . sha1(date('Y/m/d')) . "-" . $nameFile;
+            if (moveFile( $_FILES['fichier']['tmp_name'], $target)) {
+                $idNewFile = FileDao::createNewFile($nameFile, $expediteur, $size, $target, $key);
+                $file = FileDao::findById($idNewFile);
+                $urlToSend = $baseurl . "download/pagedownload/" . $file[0]['uuid'];
+            
+            }
+        }
             /* 
                 send mail here 
-
-                $contentEmail = "
-                <pre>
-                Bonjour, Monsieur $expediteur vous a envoyer un fichier, 
-                Vous pouvez le télécharger en cliquant <a href=\"$urlToSend\">ici</a>
-                Merci aller manger un grec.
-                </pre>
-                ";
             
             */
-            $template = $twig->load('result-upload.html.twig');
-            $arrayRender = array(
-                'baseurl' => $baseurl,
-                'url' => $urlToSend
-            );
+        $from = $expediteur;
+        $to = "ibrahimsow.sow@gmail.com";
+        $subject = "Files Walk";
+        $message = " <pre> Bonjour, $expediteur vous a envoyer un fichier via notre site File Walk, 
+        Vous pouvez le télécharger en cliquant <a href=\"$urlToSend\">ici</a>.
+        Merci de votre confiance.</pre>";
+        $headers = "From:" . $from;
+        mail($to,$subject,$message, $headers);
+        echo "Félicitation vos fichier ont été envoyé avec succès.";
 
-            
-        } else {
-            $arrayRender = array(
-                'baseurl' => $baseurl,
-                "errorMessage" => "Impossible to move file"
-            );
-        }
-    } else {
+        $template = $twig->load('result-upload.html.twig');
         $arrayRender = array(
             'baseurl' => $baseurl,
-            "errorMessage" => "Impossible to create folder"
+            'url' => $urlToSend
+        );
+
+            
+    }  else {
+        $arrayRender = array(
+            'baseurl' => $baseurl,
+            "errorMessage" => "Impossible to move file"
         );
     }
+//     }else {
+//     $arrayRender = array(
+//         'baseurl' => $baseurl,
+//         "errorMessage" => "Impossible to create folder"
+//     );
+//     }
 
-    if ($template == null) {
-        $template = $twig->load('error-upload.html.twig');
-    }
+//     if ($template == null) {
+//         $template = $twig->load('error-upload.html.twig');
+//     }
 
-    echo $template->render( 
-        $arrayRender
-    );
+//         echo $template->render( 
+//             $arrayRender
+//         );
 
 }
 

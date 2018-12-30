@@ -1,10 +1,12 @@
 {% extends 'index.html.twig' %} 
 
 {% block content %}
-	<h1>Error</h1>
+	<section class="container-fluid d-flex flex-column align-items-center justify-content-center" >
+		<h1>Error</h1>
 
-	{{errorMessage}}
+		{{errorMessage}}
 
-	<a href="{{baseurl}}">Upload other file</a>
+		<a href="{{baseurl}}">Revenir à la page d'accueil</a>
+	</section>
 
 {% endblock %}
