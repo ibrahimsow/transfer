@@ -24,25 +24,26 @@ function uploadFile() {
     global $twig, $baseurl;
 
     $expediteur = $_POST['email_expediteur'];
-    $key = uniqid();
     
-    $folderExpediteur = FOLDER_DESTINATION . sha1($key);
+    $keyFolder = sha1($expediteur);
+    
+    $folderExpediteur = FOLDER_DESTINATION . sha1($keyFolder);
 
     $template = null;
     $arrayRender = null;
 
     if (createFolder($folderExpediteur)) {
-        $urlToSend = "<ul>";
+        $urlToSend = "";
         for ($i = 0; $i < count($_FILES['fichier']['tmp_name']); $i++) {
             $nameFile = $_FILES['fichier']['name'][$i];
-            
+            $key = uniqid();
             $size = $_FILES['fichier']['size'][$i];
             $path = "pathSystem/" . $_FILES['fichier']['name'][$i];
             $target = $folderExpediteur . "/" . sha1(date('Y/m/d')) . "-" . $nameFile;
             if (moveFile( $_FILES['fichier']['tmp_name'][$i], $target)) {
                 $idNewFile = FileDao::createNewFile($nameFile, $expediteur, $size, $target, $key);
                 $file = FileDao::findById($idNewFile);
-                $urlToSend .= "<li><a href='". $baseurl . "download/pagedownload/" . $file[0]['uuid'] ."'>". $nameFile ."</a></li>";
+                $urlToSend .= $baseurl . "download/pagedownload/" . $file[0]['uuid'] . "\n \n ";
             } else {
                 $arrayRender = array(
                     'baseurl' => $baseurl,
@@ -50,18 +51,18 @@ function uploadFile() {
                 );
             }
         }
-        $urlToSend .= "</ul>";
+        $urlToSend .= "";
         /* 
             send mail here 
         
         */
         $from = $expediteur;
-        $to = "ibrahimsow.sow@gmail.com";
+        $to = $_POST['email_destinataire'];
         $subject = "Files Walk";
-        $message = " <pre> Bonjour, $expediteur vous a envoyer des fichiers via notre site File Walk, 
-        Voici la liste des fichiers à télécharger : </pre>" . $urlToSend . "
+        $message = "Bonjour, $expediteur vous a envoyer des fichiers via notre site File Walk, \n \n
+Voici la liste des fichiers à télécharger : \n \n " . $urlToSend . "
         
-        <pre>Merci de votre confiance.</pre>";
+Merci de votre confiance.";
         $headers = "From:" . $from;
            
         mail($to,$subject,$message, $headers);

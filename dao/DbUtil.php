@@ -10,7 +10,7 @@ class DbUtil {
 	//private const DB_USER = "root";
     //private const DB_PASSWORD = "online@2017";
     private const HOST = "localhost";
-    private const DB = "transfert";
+    private const DB = "ibrahims_transfert";
 
     /**
 	 * Session database
