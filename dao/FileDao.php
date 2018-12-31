@@ -13,12 +13,26 @@ class FileDao {
 	*/
 	public static function findAllFiles() {
 
-		$dbUtil = new DbUtil();
-
 		$sessionMysql = DbUtil::getInstance()->getDbSession();
 
 		$sqlRequest = "SELECT * ";
         $sqlRequest .= "FROM fichier f;";
+
+        $request = $sessionMysql->prepare($sqlRequest);
+        $request->execute();
+
+        return $request->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	/**
+		Return table content : fichier
+	*/
+	public static function findByEmail($email) {
+
+		$sessionMysql = DbUtil::getInstance()->getDbSession();
+
+		$sqlRequest = "SELECT * ";
+        $sqlRequest .= "FROM fichier f WHERE expediteur = '". $email ."';";
 
         $request = $sessionMysql->prepare($sqlRequest);
         $request->execute();
@@ -72,7 +86,7 @@ class FileDao {
 
 		$sqlRequest = "SELECT * ";
         $sqlRequest .= "FROM fichier f ";
-        $sqlRequest .= "WHERE f.uuid = $uuid;";
+        $sqlRequest .= "WHERE f.uuid = '".$uuid."';";
 
         $request = $sessionMysql->prepare($sqlRequest);
         $request->execute();

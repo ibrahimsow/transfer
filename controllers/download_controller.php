@@ -20,7 +20,7 @@ switch ($action) {
 function pageDownload() {
 
     global $twig, $baseurl, $id;
-
+    
     $file = FileDao::findByUUID($id);
 
     $template = $twig->load('page-download.html.twig');

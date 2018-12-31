@@ -7,6 +7,15 @@
         <a href="{{url}}">Lien vers la page de Téléchargement</a>
 
         <a href="{{baseurl}}">Revenir à la page D'acceuil</a>
+
+        <h1>files </h1>
+
+{% for file in files %}
+    <a href="{{file}}"> file {{loop.index}} </a>
+{% endfor %}
+
+        
+
     </section>
 
 

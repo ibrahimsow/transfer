@@ -32,8 +32,6 @@ function uploadFile() {
     $template = null;
     $arrayRender = null;
 
-    $files = array();
-
     if (createFolder($folderExpediteur)) {
         $urlToSend = "";
         for ($i = 0; $i < count($_FILES['fichier']['tmp_name']); $i++) {
@@ -46,7 +44,6 @@ function uploadFile() {
                 $idNewFile = FileDao::createNewFile($nameFile, $expediteur, $size, $target, $key);
                 $file = FileDao::findById($idNewFile);
                 $urlToSend .= $baseurl . "download/pagedownload/" . $file[0]['uuid'] . "\n \n ";
-                $files[$i] = $baseurl . "download/pagedownload/" . $file[0]['uuid'];
             } else {
                 $arrayRender = array(
                     'baseurl' => $baseurl,
@@ -74,7 +71,7 @@ Merci de votre confiance.";
         $arrayRender = array(
             'baseurl' => $baseurl,
             'url' => $urlToSend,
-            'files' => $files
+            'message' => $message
         );
 
             
