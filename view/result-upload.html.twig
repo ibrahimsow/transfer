@@ -1,20 +1,18 @@
 {% extends 'index.html.twig' %} 
 
 {% block content %}
-    <section class="container-fluid d-flex flex-column align-items-center justify-content-center" >
-        <h1>Success</h1>
+    <section class="result container-fluid d-flex flex-column align-items-center justify-content-center" >
+        <h2>Success</h2>
 
-        <a href="{{url}}">Lien vers la page de Téléchargement</a>
+        <a href="{{url}}"><button type="button" class="btn btn-outline-success">Lien vers la page de Téléchargement</button></a>
 
-        <a href="{{baseurl}}">Revenir à la page D'acceuil</a>
-
-        <h1>files </h1>
+        <h3>Contenu de l'envoi </h3>
 
 {% for file in files %}
-    <a href="{{file}}"> file {{loop.index}} </a>
+    <a href="{{file}}" class="mb-5"> fichier {{loop.index}} </a>
 {% endfor %}
 
-        
+        <a href="{{baseurl}}"><button type="button" class="mb-2 btn btn-outline-primary">Revenir à la page D'acceuil</button></a>        
 
     </section>
 

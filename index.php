@@ -21,6 +21,10 @@ switch ($controller) {
         require_once("controllers/download_controller.php");
         break;
 
+    case 'apropos' : 
+        require_once("controllers/apropos_controller.php"); 
+        break;
+
     default:
         require_once("controllers/home_controller.php");
         break;

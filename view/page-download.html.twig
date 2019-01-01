@@ -1,11 +1,11 @@
 {% extends 'index.html.twig' %} 
 
 {% block content %}
-	<section class="container-fluid d-flex flex-column align-items-center justify-content-center" >
-		<h1>Download page</h1>
+	<section class="result container-fluid d-flex flex-column align-items-center justify-content-center" >
+		<h2>Download page</h2>
 
-		<a href="{{url}}">Télécharger le fichier</a>
+		<a href="{{url}}"><button type="button" class="mb-5 btn btn-outline-success">Télécharger le fichier</button></a>
 
-		<a href="{{baseurl}}">Aller à la page d'accueil</a>
+		<a href="{{baseurl}}"><button type="button" class="mb-5 btn btn-outline-primary">Aller à la page d'accueil</button></a>
 	</section>
 {% endblock %}

@@ -1,6 +1,28 @@
 body {
-  background: linear-gradient(#ffffff00, #7d7d7db0);
-  height: 100vh; }
+  animation: bgimg 20s linear infinite;
+  animation-delay: 0s;
+  transition: opacity 1s ease-in-out; }
+@keyframes bgimg {
+  0% {
+    background: linear-gradient(0.25turn, rgba(29, 148, 38, 0.19), rgba(0, 232, 255, 0.22)), url(bg/bg1.jpeg) no-repeat fixed center;
+    background-size: cover;
+    opacity: 1; }
+  30% {
+    background: linear-gradient(0.25turn, rgba(29, 148, 38, 0.19), rgba(0, 232, 255, 0.22)), url(bg/bg2.jpeg) no-repeat fixed center;
+    background-size: cover;
+    opacity: 1; }
+  55% {
+    background: linear-gradient(0.25turn, rgba(29, 148, 38, 0.19), rgba(0, 232, 255, 0.22)), url(bg/bg3.jpeg) no-repeat fixed center;
+    background-size: cover;
+    opacity: 1; }
+  80% {
+    background: linear-gradient(0.25turn, rgba(29, 148, 38, 0.19), rgba(0, 232, 255, 0.22)), url(bg/bg4.jpeg) no-repeat fixed center;
+    background-size: cover;
+    opacity: 1; }
+  100% {
+    background: linear-gradient(0.25turn, rgba(29, 148, 38, 0.19), rgba(0, 232, 255, 0.22)), url(bg/bg1.jpeg) no-repeat fixed center;
+    background-size: cover;
+    opacity: 1; } }
   body header .container-fluid {
     padding: 0;
     margin-right: auto;
@@ -19,9 +41,10 @@ body {
     color: #ffffffa1; }
   body header h1 {
     font-size: 3rem;
-    margin-top: 10vh;
-    margin-bottom: 3vh;
-    color: #606061eb;
+    margin-top: 15vh;
+    margin-bottom: 8vh;
+    color: #000000b5;
+    letter-spacing: 10px;
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 5px 29px 22px #00000030; }
@@ -43,10 +66,10 @@ body {
     body header h1 .access {
       color: #ffffffb5; }
   body header h2 {
-    color: #d4d4d4eb;
     margin: 5vh;
     text-shadow: 5px 9px 12px #00000030;
-    font-size: 2rem; }
+    font-size: 2rem;
+    color: white; }
     @media (max-width: 575px) {
       body header h2 {
         margin: 0vh;
@@ -88,19 +111,52 @@ body {
       body header hr {
         width: 40vw;
         margin-bottom: 1em; } }
-  body .envoyer {
-    background-color: white;
+  body .apropos .text-apropos {
+    background-color: #000000c2;
+    box-shadow: 0px 7px 30px #0000008a;
+    padding: 0;
+    border-radius: 3%;
+    border: solid 2px #00000036;
+    max-width: 80%;
+    padding: 50px;
+    font-size: 1.6rem;
+    color: white; }
+  body .apropos .img-apropos {
+    padding: 50px; }
+  body #result a {
+    color: white; }
+  body #result ul {
+    list-style: none;
+    text-decoration: none; }
+  body .result {
+    background-color: #000000c2;
     box-shadow: 0px 7px 30px #0000008a;
     width: 100vh;
     padding: 0;
     border-radius: 3%;
-    border: solid 2px #00000036; }
+    border: solid 2px #00000036;
+    margin-bottom: 10vh; }
+    body .result h2 {
+      color: white;
+      margin-top: 20px; }
+    body .result h3 {
+      color: white;
+      margin-top: 2vh;
+      margin: 20px; }
+  body .envoyer {
+    background-color: #000000c2;
+    box-shadow: 0px 7px 30px #0000008a;
+    width: 100vh;
+    padding: 0;
+    border-radius: 3%;
+    border: solid 2px #00000036;
+    margin-bottom: 10vh; }
     body .envoyer form {
       margin: 50px;
       /* input file style */ }
       body .envoyer form label {
         font-weight: bold;
-        color: #1c97d6; }
+        color: #45c0ff; }
       body .envoyer form input, body .envoyer form optgroup, body .envoyer form select, body .envoyer form textarea {
         margin-top: 10px;
         margin-bottom: 20px;
@@ -112,7 +168,8 @@ body {
         outline: none;
         border: none;
         resize: none;
-        border-bottom: solid 1px #1c97d6; }
+        border-bottom: solid 1px #45c0ff;
+        color: white; }
       body .envoyer form button {
         width: 70%;
         background-color: #1c97d6;
@@ -142,7 +199,7 @@ body {
         color: #1c97d6;
         display: none; }
         body .envoyer form .input-file:hover, body .envoyer form .input-file:focus {
-          color: #3fade6;
-          border-color: #6cc1ec; }
+          color: #78d1ff;
+          border-color: #abe3ff; }
 
 /*# sourceMappingURL=style.css.map */
